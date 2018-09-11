@@ -16,17 +16,15 @@ header {
   margin: auto;
   height: 400px;
   width: auto;
-  background-color: grey;
 }
 
 div {
   height: 350px;
   width: auto;
-  background-color: brown;
 }
 
 .pics {
-  margin: 20px 20px;
+  margin: 20px 150px;
   height: 200px;
   width: 200px;
   display: inline-block;

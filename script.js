@@ -1,7 +1,7 @@
-const jerry = document.querySelector("#one");
-const elaine = document.querySelector("#two");
-const kramer = document.querySelector("#three");
-const george = document.querySelector("#four");
+const jerry = document.querySelector("#1");
+const elaine = document.querySelector("#2");
+const kramer = document.querySelector("#3");
+const george = document.querySelector("#4");
 console.log(jerry);
 
 // need funtion that initiates game when user click play
@@ -13,8 +13,8 @@ play.addEventListener("click", runGame); //add random # gen function once I get 
 // console.log(runGame);
 const numStore = [];
 function runGame() {
-  Math.floor(Math.random() * 4);
-  return numStore.push();
+  let numGen = Math.floor(Math.random() * 4);
+  return numStore.push(numGen);
 }
 
 // need time intervals between tile flashes (slide show)
@@ -24,7 +24,7 @@ function runGame() {
 const numStore = [];
 const castPics = document.getElementsByClassName(".pics");
 
-let foo = function(evt) {
+let foo = function(evt) { 
   if (numStore[0] === 1) {
     castPics.style.borderColor = "red";
   } else if (numStore[0] === 2) {
@@ -35,4 +35,43 @@ let foo = function(evt) {
     castPics.style.borderColor = "green";
   }
   evt.preventDefault();
+  return playerTurn(); //tiggers player turn
 };
+
+//need to initiate the players turn funtion
+
+const playerTurn = function() { // might need individal EvtL for each pic
+    jerry.addEventListener('click', function() {
+        if (numStore[0] === 1 && numStore.length === 1) {
+            alert("you got it!");
+        } else if () {
+
+        }
+        
+
+    })
+}
+
+
+let playerArr = [];
+if (jerryClick) {
+
+}
+
+let jerryClick = jerry.addEventListener('click', function() {
+    playerArr.push(1)
+})
+let elainClick = elaine.addEventListener('click', function() {
+    playerArr.push(2)
+})
+let kramerClick = kramer.addEventListener('click', function() {
+    playerArr.push(3)
+})
+let georgeClick = george.addEventListener('click', function() {
+    playerArr.push(4)
+})
+
+//player clicks this tile --> need to look at numGen array (check for )
+
+
+//after player turn, then "if true"/player got it, need to return to numGen to++ and start aagin
