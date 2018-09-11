@@ -1,0 +1,38 @@
+//need to make indy pic absolute to background graphic
+//
+
+main {
+  margin: 0;
+  font-family: Fenice Std Light Oblique;
+}
+
+header {
+  margin: 0;
+  height: 100px;
+}
+
+section {
+  margin: auto;
+  height: 400px;
+  width: 400px;
+  background-color: grey;
+}
+
+div {
+  height: 100px;
+  width: 400px;
+  background-color: brown;
+}
+
+.pics {
+  margin: auto;
+  height: 50px;
+  width: 50px;
+  background-color: tan;
+  padding: 20px 20px;
+  display: inline-block;
+}
+
+footer {
+  height: 100px;
+}
