@@ -1,6 +1,3 @@
-//need to make indy pic absolute to background graphic
-//
-
 main {
   margin: 0;
   font-family: Fenice Std Light Oblique;
@@ -10,27 +7,32 @@ header {
   margin: 0;
   height: 100px;
 }
+.instructions {
+  height: 125px;
+  width: auto;
+}
 
-section {
+.game {
   margin: auto;
   height: 400px;
-  width: 400px;
+  width: auto;
   background-color: grey;
 }
 
 div {
-  height: 100px;
-  width: 400px;
+  height: 350px;
+  width: auto;
   background-color: brown;
 }
 
 .pics {
-  margin: auto;
-  height: 50px;
-  width: 50px;
+  margin: 20px 20px;
+  height: 200px;
+  width: 200px;
   background-color: tan;
   padding: 20px 20px;
   display: inline-block;
+  border-radius: 50%;
 }
 
 footer {
