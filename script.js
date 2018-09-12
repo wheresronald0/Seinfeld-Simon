@@ -1,23 +1,24 @@
 // need funtion that initiates game when user click play
 const play = document.querySelector("#play");
-play.addEventListener("click", timerEng()); //add random # gen function once I get it working
+play.addEventListener("click", timerEng()); 
 
 const numStore = [];
 let currentRnd = 1;
 
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
-  return numStore.push(numGen), foo(numGen); //need to trigger/push nunGen to tile funtionality
-}
+  return numStore.push(numGen), foo(numGen); 
+} //not sure if it's linking 
 
 function timerEng() {
-  setTimeout(function rndCount(currentRnd) {
+    setTimeout(rndCount(), 5000);
+} //return playerTurn();
+
+function rndCount(currentRnd) {
     for (let i = 0; i < currentRnd; i++) {
       randomNumGen();
-    }
-  }, 5000);
-  return playerTurn();
 }
+
 
 const jerry = document.querySelector("#one");
 const elaine = document.querySelector("#two");
@@ -78,83 +79,81 @@ function foo(numGen) {
 
 let playerArr = [];
 
-function playerTurn() {
-  jerry.addEventListener("click", function() {
-    playerArr.push(1), tileChg1(); //will this work w/o the return feature? if mutes if because it stops it
-    if (playerArr.length > numStore.length) {
-      alert("NO SOUP FOR YOU!");
-    } else if (numStore.length === playerArr.length) {
-      for (let i = 0; i < numStore.length; i++) {
-        //Nested for loops array compare idea source came from W3Scools.com
+jerry.addEventListener("click", function() {
+  playerArr.push(1), tileChg1(); //will this work w/o the return feature? if mutes if because it stops it
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+        for (let i = 0; i < numStore.length; i++) {
+      //Nested for loops array compare idea source came from W3Scools.com
         for (let j = 0; j < playerArr.length; j++) {
-          if (playerArr[j] === numStore[i]) {
-            return winRndAlert();
-          } else {
-            alert("Yadda, Yadda... YOU LOSE");
-          }
+            if (playerArr[j] === numStore[i]) {
+                return winRndAlert();
+            } else {
+                alert("Yadda, Yadda... YOU LOSE");
+            }
         }
-      }
+        }
     }
-  });
+});
 
-  elaine.addEventListener("click", function() {
-    playerArr.push(2), tile2Chg();
-    if (playerArr.length > numStore.length) {
-      alert("NO SOUP FOR YOU!");
-    } else if (numStore.length === playerArr.length) {
-      for (let i = 0; i < numStore.length; i++) {
+elaine.addEventListener("click", function() {
+  playerArr.push(2), tile2Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+        for (let i = 0; i < numStore.length; i++) {
         for (let j = 0; j < playerArr.length; j++) {
-          if (playerArr[j] === numStore[i]) {
-            return winRndAlert();
-          } else {
-            alert("Yadda, Yadda... YOU LOSE");
-          }
+            if (playerArr[j] === numStore[i]) {
+                return winRndAlert();
+            } else {
+                alert("Yadda, Yadda... YOU LOSE");
+            }
         }
-      }
+        }
     }
-  });
+});
 
-  kramer.addEventListener("click", function() {
-    playerArr.push(3), tile3Chg();
-    if (playerArr.length > numStore.length) {
-      alert("NO SOUP FOR YOU!");
-    } else if (numStore.length === playerArr.length) {
-      for (let i = 0; i < numStore.length; i++) {
+kramer.addEventListener("click", function() {
+  playerArr.push(3), tile3Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+        for (let i = 0; i < numStore.length; i++) {
         for (let j = 0; j < playerArr.length; j++) {
-          if (playerArr[j] === numStore[i]) {
-            return winRndAlert();
-          } else {
-            alert("Yadda, Yadda... YOU LOSE");
-          }
+            if (playerArr[j] === numStore[i]) {
+                return winRndAlert();
+            } else {
+                alert("Yadda, Yadda... YOU LOSE");
+            }
         }
-      }
+        }
     }
-  });
+});
 
-  george.addEventListener("click", function() {
-    playerArr.push(4), tile4Chg();
-    if (playerArr.length > numStore.length) {
-      alert("NO SOUP FOR YOU!");
-    } else if (numStore.length === playerArr.length) {
-      for (let i = 0; i < numStore.length; i++) {
+george.addEventListener("click", function() {
+  playerArr.push(4), tile4Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+        for (let i = 0; i < numStore.length; i++) {
         for (let j = 0; j < playerArr.length; j++) {
-          if (playerArr[j] === numStore[i]) {
-            return winRndAlert();
-          } else {
-            alert("Yadda, Yadda... YOU LOSE");
-          }
+            if (playerArr[j] === numStore[i]) {
+                return winRndAlert();
+            } else {
+                alert("Yadda, Yadda... YOU LOSE");
+            }
         }
-      }
-    }
-  });
-}
+        }
+    }     
+});
 
 //after player turn, then "if true"/player got it, need to return to numGen to++ and start aagin
 
 //need an alert function
 function winRndAlert() {
   alert("You got it!. Let's move to the next round");
-  return (currentRnd += 1), (numStore = []), timerEng(); //not sure this wil work
-}
+  return (currentRnd += 1), numStore = [], timerEng(); //not sure this wil work
+};
 
 //need reset button that resets the currentRnd and rndCount

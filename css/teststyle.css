@@ -1,0 +1,80 @@
+main {
+  margin: 0 60px;
+  font-family: "Montserrat", sans-serif;
+  display: inline;
+}
+
+header {
+  margin: 0;
+  height: 150px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background: rgb(66, 66, 66);
+}
+
+h1 {
+  margin: 15px 0px 0 100px;
+  font-size: 42px;
+  font-weight: 600;
+  color: rgb(255, 187, 0);
+}
+
+#seinfeldLogo {
+  margin: 5px;
+  height: 110px;
+  width: auto;
+}
+
+#simonLogo {
+  margin: 80px 10px;
+  height: 60px;
+  width: auto;
+}
+
+#plusSign {
+  margin: 80px 10px;
+  height: 30px;
+  width: auto;
+}
+
+.instructions {
+  margin: 10px;
+  height: 125px;
+  width: auto;
+  align-content: center;
+}
+
+.game {
+  height: 400px;
+  width: auto;
+}
+
+div {
+  height: 300px;
+  width: auto;
+}
+
+.seinPics {
+  margin: 0px 150px;
+  height: 225px;
+  width: auto;
+  border-radius: 50%;
+  border: 12px solid black;
+}
+
+footer {
+  margin: 25px;
+  height: 100px;
+}
+
+#play {
+  margin: 50 0 0 475px;
+  height: 80px;
+  width: auto;
+}
