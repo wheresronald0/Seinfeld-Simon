@@ -1,24 +1,25 @@
 // need funtion that initiates game when user click play
 const play = document.querySelector("#play");
-play.addEventListener("click", timerEng()); 
+play.addEventListener("click", timerEng());
 
-const numStore = [];
+let numStore = [1, 2];
 let currentRnd = 1;
 
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
-  return numStore.push(numGen), foo(numGen); 
-} //not sure if it's linking 
+  numStore.push(numGen);
+  tileChgCall(numGen);
+} //not sure if it's linking
 
 function timerEng() {
-    setTimeout(rndCount(), 5000);
+  setTimeout(rndCount(), 0000); //do we need to pass current round via a parameter into rndCount func??
 } //return playerTurn();
 
 function rndCount(currentRnd) {
-    for (let i = 0; i < currentRnd; i++) {
-      randomNumGen();
+  for (let i = 0; i < currentRnd; i++) {
+    randomNumGen();
+  }
 }
-
 
 const jerry = document.querySelector("#one");
 const elaine = document.querySelector("#two");
@@ -29,40 +30,52 @@ const castPics = document.getElementsByClassName(".seinPics");
 function tile1Chg() {
   setTimeout(function tileChg() {
     jerry.style.borderColor = "red";
+    chg1Back();
   }, 1000);
-  setTimeout(function tileChg() {
-    jerry.style.borderColor = "black";
-  }, 1000);
-} // do I need to "break"
+  function chg1Back() {
+    setTimeout(function tileChg() {
+      jerry.style.borderColor = "black";
+    }, 1000);
+  }
+}
 
 function tile2Chg() {
   setTimeout(function tileChg() {
-    elaine.style.borderColor = "red";
+    elaine.style.borderColor = "yellow";
+    chg2Back();
   }, 1000);
-  setTimeout(function tileChg() {
-    elaine.style.borderColor = "black";
-  }, 1000);
+  function chg2Back() {
+    setTimeout(function tileChg() {
+      elaine.style.borderColor = "black";
+    }, 1000);
+  }
 }
 
 function tile3Chg() {
   setTimeout(function tileChg() {
-    kramer.style.borderColor = "red";
+    kramer.style.borderColor = "blue";
+    chg3Back();
   }, 1000);
-  setTimeout(function tileChg() {
-    kramer.style.borderColor = "black";
-  }, 1000);
+  function chg3Back() {
+    setTimeout(function tileChg() {
+      kramer.style.borderColor = "black";
+    }, 1000);
+  }
 }
 
 function tile4Chg() {
   setTimeout(function tileChg() {
-    george.style.borderColor = "red";
+    george.style.borderColor = "green";
+    chg4Back();
   }, 1000);
-  setTimeout(function tileChg() {
-    george.style.borderColor = "black";
-  }, 1000);
+  function chg4Back() {
+    setTimeout(function tileChg() {
+      george.style.borderColor = "black";
+    }, 1000);
+  }
 }
 
-function foo(numGen) {
+function tileChgCall(numGen) {
   if (numGen === 1) {
     return tile1Chg();
   } else if (numGen === 2) {
@@ -84,17 +97,17 @@ jerry.addEventListener("click", function() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
-        for (let i = 0; i < numStore.length; i++) {
+    for (let i = 0; i < numStore.length; i++) {
       //Nested for loops array compare idea source came from W3Scools.com
-        for (let j = 0; j < playerArr.length; j++) {
-            if (playerArr[j] === numStore[i]) {
-                return winRndAlert();
-            } else {
-                alert("Yadda, Yadda... YOU LOSE");
-            }
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
         }
-        }
+      }
     }
+  }
 });
 
 elaine.addEventListener("click", function() {
@@ -102,16 +115,16 @@ elaine.addEventListener("click", function() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
-        for (let i = 0; i < numStore.length; i++) {
-        for (let j = 0; j < playerArr.length; j++) {
-            if (playerArr[j] === numStore[i]) {
-                return winRndAlert();
-            } else {
-                alert("Yadda, Yadda... YOU LOSE");
-            }
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
         }
-        }
+      }
     }
+  }
 });
 
 kramer.addEventListener("click", function() {
@@ -119,16 +132,16 @@ kramer.addEventListener("click", function() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
-        for (let i = 0; i < numStore.length; i++) {
-        for (let j = 0; j < playerArr.length; j++) {
-            if (playerArr[j] === numStore[i]) {
-                return winRndAlert();
-            } else {
-                alert("Yadda, Yadda... YOU LOSE");
-            }
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
         }
-        }
+      }
     }
+  }
 });
 
 george.addEventListener("click", function() {
@@ -136,24 +149,27 @@ george.addEventListener("click", function() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
-        for (let i = 0; i < numStore.length; i++) {
-        for (let j = 0; j < playerArr.length; j++) {
-            if (playerArr[j] === numStore[i]) {
-                return winRndAlert();
-            } else {
-                alert("Yadda, Yadda... YOU LOSE");
-            }
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
         }
-        }
-    }     
+      }
+    }
+  }
 });
 
 //after player turn, then "if true"/player got it, need to return to numGen to++ and start aagin
 
 //need an alert function
 function winRndAlert() {
+  //is there an alert timer or does the next line execute once you click off, or does it break?
   alert("You got it!. Let's move to the next round");
-  return (currentRnd += 1), numStore = [], timerEng(); //not sure this wil work
-};
+  currentRnd += 1;
+  numStore = [];
+  timerEng();
+}
 
 //need reset button that resets the currentRnd and rndCount

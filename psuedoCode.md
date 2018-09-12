@@ -4,10 +4,14 @@
 psuedo:
 Computers turn:
 -user presses play button (only one user can play at a time) --> tirggers event click --> triggers # generator
--numbers are generated with a random number generator function (#1-4) --> # output triggers the "tile highlight" funtion
--each tile is represented by a number that cooresponds to random number generator
--there is a time increment between tiles being highlighted
+-numbers are generated with a random number generator function (#1-4)
+-# generator stors the number in a blank array
+--> # output triggers the "tile highlight" function
+-(each tile is represented by a number that cooresponds to random number generator)
+
 -round 1 starts with one # generated and tile highlighted, and increments++ each round
+
+-there is a time increment between tiles being highlighted
 
 - the funtion stops after each randon # generation
   -that number is stored in an array
