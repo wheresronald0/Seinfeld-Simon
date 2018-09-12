@@ -11,11 +11,76 @@ let numStore = [];
 let playerArr = [];
 let currentRnd = 1;
 
+// Guts
+function tileChgCall(numGen) {
+  if (numGen === 1) {
+    tile1Chg();
+    console.log("here");
+  } else if (numGen === 2) {
+    tile2Chg();
+    console.log("here");
+  } else if (numGen === 3) {
+    tile3Chg();
+    console.log("here");
+  } else if (numGen === 4) {
+    tile4Chg();
+    console.log("here");
+  }
+}
+
+function tile1Chg() {
+  setTimeout(function tileChg() {
+    jerry.style.borderColor = "red";
+    chg1Back();
+  }, 0000);
+  function chg1Back() {
+    setTimeout(function tileChg() {
+      jerry.style.borderColor = "white";
+    }, 1000);
+  }
+}
+
+function tile2Chg() {
+  setTimeout(function tileChg() {
+    elaine.style.borderColor = "yellow";
+    chg2Back();
+  }, 0000);
+  function chg2Back() {
+    setTimeout(function tileChg() {
+      elaine.style.borderColor = "white";
+    }, 1000);
+  }
+}
+
+function tile3Chg() {
+  setTimeout(function tileChg() {
+    kramer.style.borderColor = "blue";
+    chg3Back();
+  }, 0000);
+  function chg3Back() {
+    setTimeout(function tileChg() {
+      kramer.style.borderColor = "white";
+    }, 1000);
+  }
+}
+
+function tile4Chg() {
+  setTimeout(function tileChg() {
+    george.style.borderColor = "green";
+    chg4Back();
+  }, 0000);
+  function chg4Back() {
+    setTimeout(function tileChg() {
+      george.style.borderColor = "white";
+    }, 1000);
+  }
+}
+
 ///// Engine
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
-  //tileChgCall(numGen);
+  tileChgCall(numGen);
   console.log("here");
 }
 
@@ -24,76 +89,9 @@ function startGame() {
   randomNumGen();
 }
 
-// function timerEng() {
-//   console.log("here");
-//   setTimeout(rndCount(), 0000); //do we need to pass current round via a parameter into rndCount func??
-// } //return playerTurn();
-
 // function rndCount(currentRnd) {
 //   for (let i = 0; i < currentRnd; i++) {
 //     randomNumGen();
-//   }
-// }
-
-// //////
-
-// function tile1Chg() {
-//   setTimeout(function tileChg() {
-//     jerry.style.borderColor = "red";
-//     chg1Back();
-//   }, 0000);
-//   function chg1Back() {
-//     setTimeout(function tileChg() {
-//       jerry.style.borderColor = "white";
-//     }, 1000);
-//   }
-// }
-
-// function tile2Chg() {
-//   setTimeout(function tileChg() {
-//     elaine.style.borderColor = "yellow";
-//     chg2Back();
-//   }, 0000);
-//   function chg2Back() {
-//     setTimeout(function tileChg() {
-//       elaine.style.borderColor = "white";
-//     }, 1000);
-//   }
-// }
-
-// function tile3Chg() {
-//   setTimeout(function tileChg() {
-//     kramer.style.borderColor = "blue";
-//     chg3Back();
-//   }, 0000);
-//   function chg3Back() {
-//     setTimeout(function tileChg() {
-//       kramer.style.borderColor = "white";
-//     }, 1000);
-//   }
-// }
-
-// function tile4Chg() {
-//   setTimeout(function tileChg() {
-//     george.style.borderColor = "green";
-//     chg4Back();
-//   }, 0000);
-//   function chg4Back() {
-//     setTimeout(function tileChg() {
-//       george.style.borderColor = "white";
-//     }, 1000);
-//   }
-// }
-
-// function tileChgCall(numGen) {
-//   if (numGen === 1) {
-//     return tile1Chg();
-//   } else if (numGen === 2) {
-//     return tile2Chg();
-//   } else if (numGen === 3) {
-//     return tile3Chg();
-//   } else if (numGen === 4) {
-//     return tile4Chg();
 //   }
 // }
 
