@@ -75,23 +75,17 @@ function tile4Chg() {
   }
 }
 
-///// Engine
-function randomNumGen() {
-  let numGen = Math.floor(Math.random() * 4);
-  numStore.push(numGen);
-  tileChgCall(numGen);
-  console.log("here");
-}
-
-function startGame() {
-  console.log("here");
-  randomNumGen();
-}
-
 // Player clicks
 
 jerry.addEventListener("click", function() {
-  playerArr.push(0), tile1Chg();
+  //JS is loading at different times
+  playerArr.push(0);
+  tile1Chg();
+  jerryCnt();
+  console.log("howdy");
+});
+
+function jerryCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
@@ -106,10 +100,15 @@ jerry.addEventListener("click", function() {
       }
     }
   }
-});
+}
 
 elaine.addEventListener("click", function() {
-  playerArr.push(1), tile2Chg();
+  playerArr.push(1);
+  tile2Chg();
+  console.log("howdy");
+});
+
+function elaineCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
@@ -123,10 +122,14 @@ elaine.addEventListener("click", function() {
       }
     }
   }
-});
+}
 
 kramer.addEventListener("click", function() {
-  playerArr.push(2), tile3Chg();
+  playerArr.push(2);
+  tile3Chg();
+  console.log("howdy");
+});
+function kramerCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
@@ -140,10 +143,14 @@ kramer.addEventListener("click", function() {
       }
     }
   }
-});
+}
 
 george.addEventListener("click", function() {
-  playerArr.push(3), tile4Chg();
+  playerArr.push(3);
+  tile4Chg();
+  console.log("howdy");
+});
+function georgeCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   } else if (numStore.length === playerArr.length) {
@@ -157,13 +164,26 @@ george.addEventListener("click", function() {
       }
     }
   }
-});
+}
 
 function winRndAlert() {
   alert("You got it!. Let's move to the next round");
   currentRnd += 1;
   numStore = [];
   timerEng();
+}
+
+///// Engine
+function randomNumGen() {
+  let numGen = Math.floor(Math.random() * 4);
+  numStore.push(numGen);
+  tileChgCall(numGen);
+  console.log("here");
+}
+
+function startGame() {
+  console.log("here");
+  randomNumGen();
 }
 
 // function rndCount(currentRnd) {
