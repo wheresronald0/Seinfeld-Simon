@@ -81,7 +81,7 @@ let playerArr = [];
 
 function playerTurn() {
   jerry.addEventListener("click", function() {
-    returnplayerArr.push(1);
+    playerArr.push(1), tileChg1(); //will this work w/o the return feature? if mutes if because it stops it
     if (playerArr.length > numStore.length) {
       alert("NO SOUP FOR YOU!");
     } else if (numStore.length === playerArr.length) {
@@ -98,7 +98,7 @@ function playerTurn() {
   });
 
   elaine.addEventListener("click", function() {
-    playerArr.push(2);
+    playerArr.push(2), tile2Chg();
     if (playerArr.length > numStore.length) {
       alert("NO SOUP FOR YOU!");
     } else if (numStore.length === playerArr.length) {
@@ -115,7 +115,7 @@ function playerTurn() {
   });
 
   kramer.addEventListener("click", function() {
-    playerArr.push(3);
+    playerArr.push(3), tile3Chg();
     if (playerArr.length > numStore.length) {
       alert("NO SOUP FOR YOU!");
     } else if (numStore.length === playerArr.length) {
@@ -132,7 +132,7 @@ function playerTurn() {
   });
 
   george.addEventListener("click", function() {
-    playerArr.push(4);
+    playerArr.push(4), tile4Chg();
     if (playerArr.length > numStore.length) {
       alert("NO SOUP FOR YOU!");
     } else if (numStore.length === playerArr.length) {
