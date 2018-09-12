@@ -5,171 +5,179 @@ const george = document.querySelector("#four");
 const castPics = document.getElementsByClassName(".seinPics");
 
 const playButton = document.querySelector("button");
-playButton.addEventListener("click", timerEng);
+playButton.addEventListener("click", startGame);
 
 let numStore = [];
+let playerArr = [];
 let currentRnd = 1;
 
+///// Engine
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
-  tileChgCall(numGen);
-}
-
-function timerEng() {
+  //tileChgCall(numGen);
   console.log("here");
-  setTimeout(rndCount(), 0000); //do we need to pass current round via a parameter into rndCount func??
-} //return playerTurn();
-
-function rndCount(currentRnd) {
-  for (let i = 0; i < currentRnd; i++) {
-    randomNumGen();
-  }
 }
 
-function tile1Chg() {
-  setTimeout(function tileChg() {
-    jerry.style.borderColor = "red";
-    chg1Back();
-  }, 0000);
-  function chg1Back() {
-    setTimeout(function tileChg() {
-      jerry.style.borderColor = "white";
-    }, 1000);
-  }
+function startGame() {
+  console.log("here");
+  randomNumGen();
 }
 
-function tile2Chg() {
-  setTimeout(function tileChg() {
-    elaine.style.borderColor = "yellow";
-    chg2Back();
-  }, 0000);
-  function chg2Back() {
-    setTimeout(function tileChg() {
-      elaine.style.borderColor = "white";
-    }, 1000);
-  }
-}
+// function timerEng() {
+//   console.log("here");
+//   setTimeout(rndCount(), 0000); //do we need to pass current round via a parameter into rndCount func??
+// } //return playerTurn();
 
-function tile3Chg() {
-  setTimeout(function tileChg() {
-    kramer.style.borderColor = "blue";
-    chg3Back();
-  }, 0000);
-  function chg3Back() {
-    setTimeout(function tileChg() {
-      kramer.style.borderColor = "white";
-    }, 1000);
-  }
-}
+// function rndCount(currentRnd) {
+//   for (let i = 0; i < currentRnd; i++) {
+//     randomNumGen();
+//   }
+// }
 
-function tile4Chg() {
-  setTimeout(function tileChg() {
-    george.style.borderColor = "green";
-    chg4Back();
-  }, 0000);
-  function chg4Back() {
-    setTimeout(function tileChg() {
-      george.style.borderColor = "white";
-    }, 1000);
-  }
-}
+// //////
 
-function tileChgCall(numGen) {
-  if (numGen === 1) {
-    return tile1Chg();
-  } else if (numGen === 2) {
-    return tile2Chg();
-  } else if (numGen === 3) {
-    return tile3Chg();
-  } else if (numGen === 4) {
-    return tile4Chg();
-  }
-}
+// function tile1Chg() {
+//   setTimeout(function tileChg() {
+//     jerry.style.borderColor = "red";
+//     chg1Back();
+//   }, 0000);
+//   function chg1Back() {
+//     setTimeout(function tileChg() {
+//       jerry.style.borderColor = "white";
+//     }, 1000);
+//   }
+// }
 
-//player clicks this tile --> need to look at numGen array (check for )
-//
+// function tile2Chg() {
+//   setTimeout(function tileChg() {
+//     elaine.style.borderColor = "yellow";
+//     chg2Back();
+//   }, 0000);
+//   function chg2Back() {
+//     setTimeout(function tileChg() {
+//       elaine.style.borderColor = "white";
+//     }, 1000);
+//   }
+// }
 
-let playerArr = [];
+// function tile3Chg() {
+//   setTimeout(function tileChg() {
+//     kramer.style.borderColor = "blue";
+//     chg3Back();
+//   }, 0000);
+//   function chg3Back() {
+//     setTimeout(function tileChg() {
+//       kramer.style.borderColor = "white";
+//     }, 1000);
+//   }
+// }
 
-jerry.addEventListener("click", function() {
-  playerArr.push(1), tileChg1(); //will this work w/o the return feature? if mutes if because it stops it
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      //Nested for loops array compare idea source came from W3Scools.com
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-});
+// function tile4Chg() {
+//   setTimeout(function tileChg() {
+//     george.style.borderColor = "green";
+//     chg4Back();
+//   }, 0000);
+//   function chg4Back() {
+//     setTimeout(function tileChg() {
+//       george.style.borderColor = "white";
+//     }, 1000);
+//   }
+// }
 
-elaine.addEventListener("click", function() {
-  playerArr.push(2), tile2Chg();
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-});
+// function tileChgCall(numGen) {
+//   if (numGen === 1) {
+//     return tile1Chg();
+//   } else if (numGen === 2) {
+//     return tile2Chg();
+//   } else if (numGen === 3) {
+//     return tile3Chg();
+//   } else if (numGen === 4) {
+//     return tile4Chg();
+//   }
+// }
 
-kramer.addEventListener("click", function() {
-  playerArr.push(3), tile3Chg();
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-});
+// //player clicks this tile --> need to look at numGen array (check for )
+// //
 
-george.addEventListener("click", function() {
-  playerArr.push(4), tile4Chg();
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-});
+// jerry.addEventListener("click", function() {
+//   playerArr.push(1), tileChg1(); //will this work w/o the return feature? if mutes if because it stops it
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   } else if (numStore.length === playerArr.length) {
+//     for (let i = 0; i < numStore.length; i++) {
+//       //Nested for loops array compare idea source came from W3Scools.com
+//       for (let j = 0; j < playerArr.length; j++) {
+//         if (playerArr[j] === numStore[i]) {
+//           winRndAlert();
+//         } else {
+//           alert("Yadda, Yadda... YOU LOSE");
+//         }
+//       }
+//     }
+//   }
+// });
 
-//after player turn, then "if true"/player got it, need to return to numGen to++ and start aagin
+// elaine.addEventListener("click", function() {
+//   playerArr.push(2), tile2Chg();
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   } else if (numStore.length === playerArr.length) {
+//     for (let i = 0; i < numStore.length; i++) {
+//       for (let j = 0; j < playerArr.length; j++) {
+//         if (playerArr[j] === numStore[i]) {
+//           winRndAlert();
+//         } else {
+//           alert("Yadda, Yadda... YOU LOSE");
+//         }
+//       }
+//     }
+//   }
+// });
 
-//need an alert function
-function winRndAlert() {
-  //is there an alert timer or does the next line execute once you click off, or does it break?
-  alert("You got it!. Let's move to the next round");
-  currentRnd += 1;
-  numStore = [];
-  timerEng();
-}
+// kramer.addEventListener("click", function() {
+//   playerArr.push(3), tile3Chg();
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   } else if (numStore.length === playerArr.length) {
+//     for (let i = 0; i < numStore.length; i++) {
+//       for (let j = 0; j < playerArr.length; j++) {
+//         if (playerArr[j] === numStore[i]) {
+//           winRndAlert();
+//         } else {
+//           alert("Yadda, Yadda... YOU LOSE");
+//         }
+//       }
+//     }
+//   }
+// });
 
-//need reset button that resets the currentRnd and rndCount
+// george.addEventListener("click", function() {
+//   playerArr.push(4), tile4Chg();
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   } else if (numStore.length === playerArr.length) {
+//     for (let i = 0; i < numStore.length; i++) {
+//       for (let j = 0; j < playerArr.length; j++) {
+//         if (playerArr[j] === numStore[i]) {
+//           winRndAlert();
+//         } else {
+//           alert("Yadda, Yadda... YOU LOSE");
+//         }
+//       }
+//     }
+//   }
+// });
+
+// //after player turn, then "if true"/player got it, need to return to numGen to++ and start aagin
+
+// //need an alert function
+// function winRndAlert() {
+//   //is there an alert timer or does the next line execute once you click off, or does it break?
+//   alert("You got it!. Let's move to the next round");
+//   currentRnd += 1;
+//   numStore = [];
+//   timerEng();
+// }
+
+// //need reset button that resets the currentRnd and rndCount
