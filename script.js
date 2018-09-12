@@ -2,7 +2,6 @@ const jerry = document.querySelector("#one");
 const elaine = document.querySelector("#two");
 const kramer = document.querySelector("#three");
 const george = document.querySelector("#four");
-const castPics = document.getElementsByClassName(".seinPics");
 
 const playButton = document.querySelector("button");
 playButton.addEventListener("click", startGame);
@@ -13,16 +12,16 @@ let currentRnd = 1;
 
 // Guts
 function tileChgCall(numGen) {
-  if (numGen === 1) {
+  if (numGen === 0) {
     tile1Chg();
     console.log("here");
-  } else if (numGen === 2) {
+  } else if (numGen === 1) {
     tile2Chg();
     console.log("here");
-  } else if (numGen === 3) {
+  } else if (numGen === 2) {
     tile3Chg();
     console.log("here");
-  } else if (numGen === 4) {
+  } else if (numGen === 3) {
     tile4Chg();
     console.log("here");
   }
@@ -87,6 +86,84 @@ function randomNumGen() {
 function startGame() {
   console.log("here");
   randomNumGen();
+}
+
+// Player clicks
+
+jerry.addEventListener("click", function() {
+  playerArr.push(0), tile1Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+    for (let i = 0; i < numStore.length; i++) {
+      //Nested for loops array compare idea source came from W3Scools.com
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
+        }
+      }
+    }
+  }
+});
+
+elaine.addEventListener("click", function() {
+  playerArr.push(1), tile2Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
+        }
+      }
+    }
+  }
+});
+
+kramer.addEventListener("click", function() {
+  playerArr.push(2), tile3Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
+        }
+      }
+    }
+  }
+});
+
+george.addEventListener("click", function() {
+  playerArr.push(3), tile4Chg();
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (numStore.length === playerArr.length) {
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
+        }
+      }
+    }
+  }
+});
+
+function winRndAlert() {
+  alert("You got it!. Let's move to the next round");
+  currentRnd += 1;
+  numStore = [];
+  timerEng();
 }
 
 // function rndCount(currentRnd) {
