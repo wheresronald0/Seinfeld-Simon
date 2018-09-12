@@ -5,19 +5,18 @@ play.addEventListener("click", timerEng()); //add random # gen function once I g
 const numStore = [];
 let currentRnd = 0;
 
-function timerEng() {
-    setTimeout(rndCount, 5000) { //is this the one we need? 
-        function rndCount() {
-            for (let i = 0; i < currentRnd; i++) {
-                function runGame() { // winRndAlert resets numStore array
-                    let numGen = Math.floor(Math.random() * 4);
-                    return numStore.push(numGen), foo(numGen); //need to trigger/push nunGen to tile funtionality
-                }
-            }
-        return playerTurn();  
-        }
-    }
-}
+function timerEng () {
+    setTimeout(function rndCount () {
+      for (let i = 0; i < currentRnd; i++) {
+        function runGame () { // winRndAlert resets numStore array
+          let numGen = Math.floor(Math.random() * 4)
+                  return numStore.push(numGen), foo(numGen) //need to trigger/push nunGen to tile funtionality
+              }
+      }
+    }, 5000)
+    return playerTurn()  
+  }
+  
 
 const jerry = document.querySelector("#1");
 const elaine = document.querySelector("#2");
@@ -63,13 +62,13 @@ function tile1Chg() {
 
 function foo(numGen) { 
     if (numGen === 1) {
-      return function tile1Chg();
+      return tile1Chg();
     } else if (numGen === 2) {
-      return function tile2Chg();
+      return tile2Chg();
     } else if (numGen === 3) {
-      return function tile3Chg();
+      return tile3Chg();
     } else if (numGen === 4) {
-      return function tile4Chg();
+      return tile4Chg();
     }
 }
 
