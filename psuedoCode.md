@@ -3,11 +3,27 @@
 
 psuedo:
 Computers turn:
--user presses play button (only one user can play at a time) --> tirggers event click --> triggers # generator
--numbers are generated with a random number generator function (#1-4)
--# generator stors the number in a blank array
---> # output triggers the "tile highlight" function
--(each tile is represented by a number that cooresponds to random number generator)
+
+- user presses play button:
+  - trigger startGame() function
+  - create first random number and add it to the numStore array
+  - get tile from Simon gameboard
+  - highlight it
+  - remove highlighting
+- player clicks on their guess
+
+  - triggers tile highlight for the tile they clicked
+  - add that valiue to an playerArr array
+  - check it two arrays are the same length
+  - if same length check for indentical values
+  - if same alert congrats
+    - if win, advance to the next round
+  - if not alert you suck
+
+* numbers are generated with a random number generator function (#1-4)
+  -# generator stors the number in a blank array
+  --> # output triggers the "tile highlight" function
+  -(each tile is represented by a number that cooresponds to random number generator)
 
 -round 1 starts with one # generated and tile highlighted, and increments++ each round
 

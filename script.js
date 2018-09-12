@@ -1,17 +1,23 @@
-// need funtion that initiates game when user click play
-const play = document.querySelector("#play");
-play.addEventListener("click", timerEng());
+const jerry = document.querySelector("#one");
+const elaine = document.querySelector("#two");
+const kramer = document.querySelector("#three");
+const george = document.querySelector("#four");
+const castPics = document.getElementsByClassName(".seinPics");
 
-let numStore = [1, 2];
+const playButton = document.querySelector("button");
+playButton.addEventListener("click", timerEng);
+
+let numStore = [];
 let currentRnd = 1;
 
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
   tileChgCall(numGen);
-} //not sure if it's linking
+}
 
 function timerEng() {
+  console.log("here");
   setTimeout(rndCount(), 0000); //do we need to pass current round via a parameter into rndCount func??
 } //return playerTurn();
 
@@ -21,20 +27,14 @@ function rndCount(currentRnd) {
   }
 }
 
-const jerry = document.querySelector("#one");
-const elaine = document.querySelector("#two");
-const kramer = document.querySelector("#three");
-const george = document.querySelector("#four");
-const castPics = document.getElementsByClassName(".seinPics");
-
 function tile1Chg() {
   setTimeout(function tileChg() {
     jerry.style.borderColor = "red";
     chg1Back();
-  }, 1000);
+  }, 0000);
   function chg1Back() {
     setTimeout(function tileChg() {
-      jerry.style.borderColor = "black";
+      jerry.style.borderColor = "white";
     }, 1000);
   }
 }
@@ -43,10 +43,10 @@ function tile2Chg() {
   setTimeout(function tileChg() {
     elaine.style.borderColor = "yellow";
     chg2Back();
-  }, 1000);
+  }, 0000);
   function chg2Back() {
     setTimeout(function tileChg() {
-      elaine.style.borderColor = "black";
+      elaine.style.borderColor = "white";
     }, 1000);
   }
 }
@@ -55,10 +55,10 @@ function tile3Chg() {
   setTimeout(function tileChg() {
     kramer.style.borderColor = "blue";
     chg3Back();
-  }, 1000);
+  }, 0000);
   function chg3Back() {
     setTimeout(function tileChg() {
-      kramer.style.borderColor = "black";
+      kramer.style.borderColor = "white";
     }, 1000);
   }
 }
@@ -67,10 +67,10 @@ function tile4Chg() {
   setTimeout(function tileChg() {
     george.style.borderColor = "green";
     chg4Back();
-  }, 1000);
+  }, 0000);
   function chg4Back() {
     setTimeout(function tileChg() {
-      george.style.borderColor = "black";
+      george.style.borderColor = "white";
     }, 1000);
   }
 }
