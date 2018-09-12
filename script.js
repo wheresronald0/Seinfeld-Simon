@@ -116,8 +116,10 @@ function playerTurn() {
 
 //after player turn, then "if true"/player got it, need to return to numGen to++ and start aagin
 
-//need an alert fubntion
+//need an alert function
 function winRndAlert() {
     alert("You got it!. Let's move to the next round")
-    return runGame() += 1; //not sure this wil work
+    return currentRnd += 1, numStore = [], timerEng();//not sure this wil work
 }
+
+//need reset button that resets the currentRnd and rndCount
