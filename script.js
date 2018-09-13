@@ -169,6 +169,17 @@ function georgeCnt() {
 }
 
 ///// start next rnd
+function winRndAlert() {
+  alert("You got it!. Let's move to the next round");
+  advncNextRnd();
+}
+
+function advncNextRnd() {
+  numStore = [];
+  playerArr = [];
+  currentRnd = currentRnd + 1;
+  startGame();
+}
 
 // function advncNextRnd() {
 //   //need to tie this to each of 4 player tiles
@@ -178,18 +189,6 @@ function georgeCnt() {
 //   rndCount(currentRnd); //not sure I need another fuction (probably do)
 // }
 
-function winRndAlert() {
-  alert("You got it!. Let's move to the next round");
-  //   advncNextRnd();
-  //   startGame();
-}
-
-// function advncNextRnd() {
-//   //need to tie this to each of 4 player tiles
-//   numStore = [];
-//   playerArr = [];
-//   currentRnd = current + 1;
-// }
 // !!!!!!!!!!!!!!!!!!not sure I even need this for loop- really just need to fin a way to run the startGame func 2x
 // function rndCount(currentRndCnt) {
 //   //still needs work and this fuction hasn't been thought through
