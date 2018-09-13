@@ -11,33 +11,33 @@ let playerArr = [];
 let currentRnd = 1;
 
 // Guts
-// function increaseCounter() {
-//   let counter = 0;
-//   increase();
-//   function increase() {
-//     setTimeout(function() {
-//       counter++;
-//       if (counter <= numStore.length) {
-//         increase();
-//         tile1Chg();
-//       }
-//     }, 1000);
-//   }
-// }
+function increaseCounter() {
+  let counter = 0;
+  increase();
+  function increase() {
+    setTimeout(function() {
+      counter++;
+      if (counter <= numStore.length) {
+        increase();
+        tile1Chg();
+      }
+    }, 1000);
+  }
+}
 
 function tileChgCall(numGen) {
   if (numGen === 0) {
     tile1Chg();
-    console.log("here");
+    console.log("hip");
   } else if (numGen === 1) {
     tile2Chg();
-    console.log("here");
+    console.log("hip");
   } else if (numGen === 2) {
     tile3Chg();
-    console.log("here");
+    console.log("hip");
   } else if (numGen === 3) {
     tile4Chg();
-    console.log("here");
+    console.log("hip");
   }
 }
 
@@ -90,13 +90,17 @@ function tile4Chg() {
 }
 
 // Player clicks
-let truFls;
+let truFls = true;
 function winOrLose() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   }
-  for (let i = 0; i <= numStore.length; i++) {
-    truFls = playerArr[i] === numStore[i];
+
+  for (let i = 0; i < numStore.length; i++) {
+    console.log(playerArr[i], numStore[i]);
+    if (playerArr[i] !== numStore[i]) {
+      truFls = false;
+    }
   }
   if (truFls === true) {
     winRndAlert();
@@ -104,6 +108,22 @@ function winOrLose() {
     alert("Yadda, Yadda... YOU LOSE");
   }
 }
+
+//   for (let i = 0; i < numStore.length; i++) {
+//     if (playerArr[i] === numStore[i]) {
+//       truFls = "true";
+//       console.log("true");
+//     } else {
+//       truFls = "false";
+//       console.log("false");
+//     }
+//   }
+//   if (truFls === "true") {
+//     winRndAlert();
+//   } else {
+//     alert("Yadda, Yadda... YOU LOSE");
+//   }
+// }
 
 jerry.addEventListener("click", function() {
   //JS is loading at different times
@@ -152,21 +172,15 @@ function advncNextRnd() {
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
-  tileChgCall(numGen);
+  increaseCounter(numGen);
   console.log("here");
 }
 
 function startGame() {
-  for (let i = 1; i <= currentRnd; i++) {
+  for (let i = 0; i < currentRnd; i++) {
     randomNumGen();
   }
 }
-
-// function rndCount(currentRnd) {
-//   for (let i = 0; i < currentRnd; i++) {
-//     randomNumGen();
-//   }
-// }
 
 // //player clicks this tile --> need to look at numGen array (check for )
 // //

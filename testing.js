@@ -107,26 +107,42 @@
 //   }, 1000);
 // }
 
-
 ///////////
 
-let truFls;
+// let truFls;
 
+// function winOrLose() {
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   }
+
+//   for (let i = 0; i <= numStore.length; i++) {
+//       truFls = (playerArr[i] === numStore[i]);
+//     }
+
+//     if (truFls === true) {
+//     winRndAlert();
+//   } else {
+//     alert("Yadda, Yadda... YOU LOSE");
+//   }
+
+let truFls;
 function winOrLose() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   }
-  
-  for (let i = 0; i <= numStore.length; i++) {
-      truFls = (playerArr[i] === numStore[i]);
+  for (let i = 0; i < numStore.length; i++) {
+    if (playerArr[i] === numStore[i]) {
+      truFls = true;
+      console.log("true");
+    } else {
+      truFls = false;
+      console.log("false");
     }
-  
-    if (truFls === true) {
+  }
+  if (truFls === true) {
     winRndAlert();
   } else {
     alert("Yadda, Yadda... YOU LOSE");
   }
-
-    
-
-
+}
