@@ -11,82 +11,81 @@ let playerArr = [];
 let currentRnd = 1;
 
 // Guts
-function increaseCounter() {
+function increaseCounter(numGen) {
   let counter = 0;
   increase();
   function increase() {
     setTimeout(function() {
       counter++;
       if (counter <= numStore.length) {
-        increase();
-        tile1Chg();
+        tileChgCall(numGen);
       }
     }, 1000);
   }
 }
 
 function tileChgCall(numGen) {
-  if (numGen === 0) {
+  if (numGen == 0) {
     tile1Chg();
-    console.log("hip");
-  } else if (numGen === 1) {
+    console.log("tile1 bordere change call triggered");
+  } else if (numGen == 1) {
     tile2Chg();
-    console.log("hip");
-  } else if (numGen === 2) {
+    console.log("tile1 bordere change call triggered");
+  } else if (numGen == 2) {
     tile3Chg();
-    console.log("hip");
-  } else if (numGen === 3) {
+    console.log("tile1 bordere change call triggered");
+  } else if (numGen == 3) {
     tile4Chg();
-    console.log("hip");
+    console.log("tile1 bordere change call triggered");
   }
 }
 
 function tile1Chg() {
+  jerry.style.borderColor = "red";
   setTimeout(function tileChg() {
-    jerry.style.borderColor = "red";
     chg1Back();
-  }, 0000);
-  function chg1Back() {
-    setTimeout(function tileChg() {
-      jerry.style.borderColor = "white";
-    }, 1000);
-  }
+    console.log("0 initial tile change");
+  }, 1000);
+}
+function chg1Back() {
+  jerry.style.borderColor = "white";
+  console.log("0 initial tile change BACK");
 }
 
 function tile2Chg() {
+  elaine.style.borderColor = "yellow";
   setTimeout(function tileChg() {
-    elaine.style.borderColor = "yellow";
     chg2Back();
-  }, 0000);
-  function chg2Back() {
-    setTimeout(function tileChg() {
-      elaine.style.borderColor = "white";
-    }, 1000);
-  }
+    console.log("1 initial tile change");
+  }, 1000);
+}
+function chg2Back() {
+  elaine.style.borderColor = "white";
+  console.log("1 initial tile change BACK");
 }
 
 function tile3Chg() {
+  kramer.style.borderColor = "blue";
   setTimeout(function tileChg() {
-    kramer.style.borderColor = "blue";
     chg3Back();
-  }, 0000);
-  function chg3Back() {
-    setTimeout(function tileChg() {
-      kramer.style.borderColor = "white";
-    }, 1000);
-  }
+    console.log("2 initial tile change");
+  }, 1000);
+}
+function chg3Back() {
+  kramer.style.borderColor = "white";
+  console.log("2 initial tile change BACK");
 }
 
 function tile4Chg() {
+  george.style.borderColor = "green";
   setTimeout(function tileChg() {
-    george.style.borderColor = "green";
     chg4Back();
-  }, 0000);
-  function chg4Back() {
-    setTimeout(function tileChg() {
-      george.style.borderColor = "white";
-    }, 1000);
-  }
+    console.log("3 initial tile change");
+  }, 1000);
+}
+function chg4Back() {
+  george.style.borderColor = "white";
+  console.log("3 initial tile change BACK");
 }
 
 // Player clicks
@@ -100,6 +99,7 @@ function winOrLose() {
     console.log(playerArr[i], numStore[i]);
     if (playerArr[i] !== numStore[i]) {
       truFls = false;
+      console.log("evaluates to false");
     }
   }
   if (truFls === true) {
@@ -126,59 +126,62 @@ function winOrLose() {
 // }
 
 jerry.addEventListener("click", function() {
-  //JS is loading at different times
   playerArr.push(0);
-  tile1Chg();
+  tile2Chg();
   winOrLose();
-  console.log("howdy");
+  console.log("jerry click funct calls");
 });
 
 elaine.addEventListener("click", function() {
   playerArr.push(1);
   tile2Chg();
   winOrLose();
-  console.log("howdy");
+  console.log("elaine click funct calls");
 });
 
 kramer.addEventListener("click", function() {
   playerArr.push(2);
   tile3Chg();
   winOrLose();
-  console.log("howdy");
+  console.log("kramer click funct calls");
 });
 
 george.addEventListener("click", function() {
   playerArr.push(3);
   tile4Chg();
   winOrLose();
-  console.log("howdy");
+  console.log("george click funct calls");
 });
 
 ///// start next rnd
 function winRndAlert() {
   alert("You got it!. Let's move to the next round");
   advncNextRnd();
+  console.log("win alert triggered, advance to the next round");
 }
 
 function advncNextRnd() {
-  //tested and all work
+  setTimeout(function() {
+    startGame();
+    console.log("pause between rounds");
+  }, 3000);
+  currentRnd += 1;
   numStore = [];
   playerArr = [];
-  currentRnd = currentRnd + 1;
-  startGame();
 }
 
 ///// Engine
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
-  increaseCounter(numGen);
-  console.log("here");
+  increaseCounter(numGen); //seperate
+  console.log("2");
 }
 
 function startGame() {
   for (let i = 0; i < currentRnd; i++) {
-    randomNumGen();
+    randomNumGen(); //seperate
+    console.log("1");
   }
 }
 

@@ -39,57 +39,57 @@
 //   }, 1000);
 // }
 
-// function stager() {
-//   if (numStore[0]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 1000);
-//   }
-//   else if (numStore[1]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 1000);
-//   }
-//   else if (numStore[2]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 1000);
-//   }
-//   else if (numStore[3]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 1500);
-//   }
-//   else if (numStore[4]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 2000);
-//   }
-//   else if (numStore[5]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 2500);
-//   }
-//   else if (numStore[6]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 3000);
-//   }
-//   else if (numStore[7]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 3500);
-//   }
-//   else if (numStore[8]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 4000);
-//   }
-//   else if (numStore[9]) {
-//     setTimeout(function() {
-//       tileChgCall(0);
-//     }, 4500);
-// };
+function stager() {
+  if (numStore[0]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 1000);
+  }
+  else if (numStore[1]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 1000);
+  }
+  else if (numStore[2]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 1000);
+  }
+  else if (numStore[3]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 1500);
+  }
+  else if (numStore[4]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 2000);
+  }
+  else if (numStore[5]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 2500);
+  }
+  else if (numStore[6]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 3000);
+  }
+  else if (numStore[7]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 3500);
+  }
+  else if (numStore[8]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 4000);
+  }
+  else if (numStore[9]) {
+    setTimeout(function() {
+      tileChgCall(0);
+    }, 4500);
+};
 
 // let counter = 0;
 
