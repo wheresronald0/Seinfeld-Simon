@@ -11,6 +11,20 @@ let playerArr = [];
 let currentRnd = 1;
 
 // Guts
+// function increaseCounter() {
+//   let counter = 0;
+//   increase();
+//   function increase() {
+//     setTimeout(function() {
+//       counter++;
+//       if (counter <= numStore.length) {
+//         increase();
+//         tile1Chg();
+//       }
+//     }, 1000);
+//   }
+// }
+
 function tileChgCall(numGen) {
   if (numGen === 0) {
     tile1Chg();
@@ -76,112 +90,49 @@ function tile4Chg() {
 }
 
 // Player clicks
+let truFls;
+function winOrLose() {
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  }
+  for (let i = 0; i <= numStore.length; i++) {
+    truFls = playerArr[i] === numStore[i];
+  }
+  if (truFls === true) {
+    winRndAlert();
+  } else {
+    alert("Yadda, Yadda... YOU LOSE");
+  }
+}
 
 jerry.addEventListener("click", function() {
   //JS is loading at different times
   playerArr.push(0);
   tile1Chg();
-  jerryCnt();
+  winOrLose();
   console.log("howdy");
 });
-function jerryCnt() {
-  //Nested for loops array compare idea source came from W3Scools.com
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (playerArr.length === numStore.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert(); //you can't win rnd each level, it needs ot go to the next
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-}
 
 elaine.addEventListener("click", function() {
   playerArr.push(1);
   tile2Chg();
-  elaineCnt();
+  winOrLose();
   console.log("howdy");
 });
-function elaineCnt() {
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (playerArr.length === numStore.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-}
-
-function elaineCnt() {
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (playerArr.length === numStore.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-}
 
 kramer.addEventListener("click", function() {
   playerArr.push(2);
   tile3Chg();
-  kramerCnt();
+  winOrLose();
   console.log("howdy");
 });
-function kramerCnt() {
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (playerArr.length === numStore.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-}
 
 george.addEventListener("click", function() {
   playerArr.push(3);
   tile4Chg();
-  georgeCnt();
+  winOrLose();
   console.log("howdy");
 });
-function georgeCnt() {
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  } else if (playerArr.length === numStore.length) {
-    for (let i = 0; i < numStore.length; i++) {
-      for (let j = 0; j < playerArr.length; j++) {
-        if (playerArr[j] === numStore[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
-        }
-      }
-    }
-  }
-}
 
 ///// start next rnd
 function winRndAlert() {
@@ -205,14 +156,9 @@ function randomNumGen() {
   console.log("here");
 }
 
-function cntAdvance() {
-  console.log("here");
-  randomNumGen();
-}
-
 function startGame() {
   for (let i = 1; i <= currentRnd; i++) {
-    cntAdvance();
+    randomNumGen();
   }
 }
 
@@ -320,3 +266,9 @@ function startGame() {
 //     playerArr = [];
 //     currentRnd = current + 1;
 //   }
+
+/// engine///
+// function cntAdvance() {
+//   console.log("here");
+//   randomNumGen();
+// }
