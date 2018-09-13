@@ -20,6 +20,12 @@ Computers turn:
     - if win, advance to the next round
   - if not alert you suck
 
+- start next round
+  - call function that starts the number generator again
+  - clear both arrays
+  - iterate to that the number genrator run++
+  - maybey a timer countdown?
+
 * numbers are generated with a random number generator function (#1-4)
   -# generator stors the number in a blank array
   --> # output triggers the "tile highlight" function

@@ -105,9 +105,9 @@ function jerryCnt() {
 elaine.addEventListener("click", function() {
   playerArr.push(1);
   tile2Chg();
+  elaineCnt();
   console.log("howdy");
 });
-
 function elaineCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
@@ -127,6 +127,7 @@ function elaineCnt() {
 kramer.addEventListener("click", function() {
   playerArr.push(2);
   tile3Chg();
+  kramerCnt();
   console.log("howdy");
 });
 function kramerCnt() {
@@ -148,6 +149,7 @@ function kramerCnt() {
 george.addEventListener("click", function() {
   playerArr.push(3);
   tile4Chg();
+  georgeCnt();
   console.log("howdy");
 });
 function georgeCnt() {
@@ -166,12 +168,35 @@ function georgeCnt() {
   }
 }
 
+///// start next rnd
+
+// function advncNextRnd() {
+//   //need to tie this to each of 4 player tiles
+//   numStore = [];
+//   playerArr = [];
+//   currentRnd = currentRnd + 1; //this funct already exists in rndCound
+//   rndCount(currentRnd); //not sure I need another fuction (probably do)
+// }
+
 function winRndAlert() {
   alert("You got it!. Let's move to the next round");
-  currentRnd += 1;
-  numStore = [];
-  timerEng();
+  //   advncNextRnd();
+  //   startGame();
 }
+
+// function advncNextRnd() {
+//   //need to tie this to each of 4 player tiles
+//   numStore = [];
+//   playerArr = [];
+//   currentRnd = current + 1;
+// }
+// !!!!!!!!!!!!!!!!!!not sure I even need this for loop- really just need to fin a way to run the startGame func 2x
+// function rndCount(currentRndCnt) {
+//   //still needs work and this fuction hasn't been thought through
+//   for (let i = 0; i < currentRndCnt; i++) {
+//     startGame();
+//   }
+// }
 
 ///// Engine
 function randomNumGen() {
@@ -276,3 +301,17 @@ function startGame() {
 // }
 
 // //need reset button that resets the currentRnd and rndCount
+
+//--------   code dump for win alert ------------------
+// function winRndAlert() {
+//     alert("You got it!. Let's move to the next round");
+//     advncNextRnd();
+//     startGame();
+//   }
+
+//   function advncNextRnd() {
+//     //need to tie this to each of 4 player tiles
+//     numStore = [];
+//     playerArr = [];
+//     currentRnd = current + 1;
+//   }
