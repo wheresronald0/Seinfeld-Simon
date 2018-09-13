@@ -84,16 +84,15 @@ jerry.addEventListener("click", function() {
   jerryCnt();
   console.log("howdy");
 });
-
 function jerryCnt() {
+  //Nested for loops array compare idea source came from W3Scools.com
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
+  } else if (playerArr.length === numStore.length) {
     for (let i = 0; i < numStore.length; i++) {
-      //Nested for loops array compare idea source came from W3Scools.com
       for (let j = 0; j < playerArr.length; j++) {
         if (playerArr[j] === numStore[i]) {
-          winRndAlert();
+          winRndAlert(); //you can't win rnd each level, it needs ot go to the next
         } else {
           alert("Yadda, Yadda... YOU LOSE");
         }
@@ -111,7 +110,23 @@ elaine.addEventListener("click", function() {
 function elaineCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
+  } else if (playerArr.length === numStore.length) {
+    for (let i = 0; i < numStore.length; i++) {
+      for (let j = 0; j < playerArr.length; j++) {
+        if (playerArr[j] === numStore[i]) {
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
+        }
+      }
+    }
+  }
+}
+
+function elaineCnt() {
+  if (playerArr.length > numStore.length) {
+    alert("NO SOUP FOR YOU!");
+  } else if (playerArr.length === numStore.length) {
     for (let i = 0; i < numStore.length; i++) {
       for (let j = 0; j < playerArr.length; j++) {
         if (playerArr[j] === numStore[i]) {
@@ -133,7 +148,7 @@ kramer.addEventListener("click", function() {
 function kramerCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
+  } else if (playerArr.length === numStore.length) {
     for (let i = 0; i < numStore.length; i++) {
       for (let j = 0; j < playerArr.length; j++) {
         if (playerArr[j] === numStore[i]) {
@@ -155,7 +170,7 @@ george.addEventListener("click", function() {
 function georgeCnt() {
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
-  } else if (numStore.length === playerArr.length) {
+  } else if (playerArr.length === numStore.length) {
     for (let i = 0; i < numStore.length; i++) {
       for (let j = 0; j < playerArr.length; j++) {
         if (playerArr[j] === numStore[i]) {
@@ -175,27 +190,12 @@ function winRndAlert() {
 }
 
 function advncNextRnd() {
+  //tested and all work
   numStore = [];
   playerArr = [];
   currentRnd = currentRnd + 1;
   startGame();
 }
-
-// function advncNextRnd() {
-//   //need to tie this to each of 4 player tiles
-//   numStore = [];
-//   playerArr = [];
-//   currentRnd = currentRnd + 1; //this funct already exists in rndCound
-//   rndCount(currentRnd); //not sure I need another fuction (probably do)
-// }
-
-// !!!!!!!!!!!!!!!!!!not sure I even need this for loop- really just need to fin a way to run the startGame func 2x
-// function rndCount(currentRndCnt) {
-//   //still needs work and this fuction hasn't been thought through
-//   for (let i = 0; i < currentRndCnt; i++) {
-//     startGame();
-//   }
-// }
 
 ///// Engine
 function randomNumGen() {
@@ -205,9 +205,15 @@ function randomNumGen() {
   console.log("here");
 }
 
-function startGame() {
+function cntAdvance() {
   console.log("here");
   randomNumGen();
+}
+
+function startGame() {
+  for (let i = 1; i <= currentRnd; i++) {
+    cntAdvance();
+  }
 }
 
 // function rndCount(currentRnd) {
