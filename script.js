@@ -93,10 +93,10 @@ function chg4Back() {
 
 function winOrLose(playerArr, numStore) {
   if (playerArr.length === numStore.length) {
+    console.log("this is evaluating");
     for (var i = 0; i < playerArr.length; i++) {
       for (var j = 0; j < numStore.length; j++) {
         if (numStore[j] === playerArr[i]) {
-          console.log("this is evaluating");
           winRndAlert();
         } else {
           alert("Yadda, Yadda... YOU LOSE");
