@@ -131,7 +131,7 @@ function winOrLose(playerArr, numStore) {
 
 jerry.addEventListener("click", function() {
   playerArr.push(0);
-  tile2Chg();
+  tile1Chg();
   winOrLose(playerArr, numStore);
   console.log("jerry click funct calls");
 });
@@ -166,7 +166,7 @@ function winRndAlert() {
 
 function advncNextRnd() {
   setTimeout(function() {
-    currentRnd += 1;
+    //currentRnd += 1;
     numStore = [];
     playerArr = [];
     startGame();
@@ -175,17 +175,30 @@ function advncNextRnd() {
 }
 
 ///// Engine
-function randomNumGen() {
-  let numGen = Math.floor(Math.random() * 4);
-  numStore.push(numGen);
-  increaseCounter(numGen);
-  console.log("2");
-}
+// function randomNumGen() {
+//   let numGen = Math.floor(Math.random() * 4);
+//   numStore.push(numGen);
+//   increaseCounter(numGen); //triggering exponentially per round
+//   console.log("2");
+// }
+
+// function startGame() {
+//   for (let i = 0; i < currentRnd; i++) {
+//     randomNumGen(); //seperate
+//     console.log("1");
+//   }
+// }
 
 function startGame() {
   for (let i = 0; i < currentRnd; i++) {
     randomNumGen(); //seperate
     console.log("1");
+  }
+  function randomNumGen() {
+    let numGen = Math.floor(Math.random() * 4);
+    numStore.push(numGen);
+    increaseCounter(numGen); //triggering exponentially per round
+    console.log("2");
   }
 }
 
