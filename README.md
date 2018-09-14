@@ -20,7 +20,7 @@ Installation Instructions / Getting Started:
 Get ready to watch, remember, repeat! The Seinfeld-Simon game is the exciting computer game of lights and pictures of you favorite cast of charecters from the hit sitcom, Seinfeld. Players must repeat random sequences of lights by pressing the highlighted pictures in the correct order, to move to the next round.
 
 Contribution Guidelines:
-I encourage feedback and issue reporting. Please reach out directly to me via eamil so I can address any questions or concerns at, Ron Mason - wheresronald0@gamil.com
+I encourage feedback and issue reporting. Please reach out directly to me via eamil so I can address any questions or concerns at, Ron Mason - wheresronald0@gmail.com
 
 Good links to include are:
 Main GitHub repository: https://github.com/wheresronald0/Seinfeld-Simon
