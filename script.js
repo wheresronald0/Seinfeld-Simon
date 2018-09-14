@@ -9,7 +9,7 @@ playButton.addEventListener("click", startGame);
 let numStore = [];
 let playerArr = [];
 let stageData = [];
-let currentRnd = 3;
+let currentRnd = 1;
 
 /// Engine
 
@@ -205,6 +205,7 @@ function winRndAlert() {
 }
 
 function advncNextRnd() {
+  currentRnd++;
   setTimeout(function() {
     startGame();
     console.log("pause between rounds");
