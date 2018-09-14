@@ -8,36 +8,76 @@ playButton.addEventListener("click", startGame);
 
 let numStore = [];
 let playerArr = [];
-let currentRnd = 1;
+let stageData = [];
+let currentRnd = 2;
 
-// Guts
+/// Engine
 
-function increaseCounter(numGen) {
-  let counter = 0;
-  increaseByOneSecond();
-  function increaseByOneSecond() {
-    setTimeout(function() {
-      counter++;
-      if (counter <= numStore.length) {
-        tileChgCall(numGen);
-      }
-    }, 1000);
+function startGame() {
+  for (let i = 0; i < currentRnd; i++) {
+    numStore = [];
+    playerArr = [];
+    stageData = [];
+    randomNumGen();
+    console.log("1");
+  }
+  function randomNumGen() {
+    let numGen = Math.floor(Math.random() * 4);
+    numStore.push(numGen);
+    console.log("2");
+  }
+  console.log("3");
+  stagingExtractor();
+  console.log("4");
+}
+
+function stagingExtractor() {
+  //source: https://borgs.cybrilla.com/tils/javascript-for-loop-with-delay-in-each-iteration-using-iife/
+  console.log("5");
+  for (let i = 0; i < currentRnd; i++) {
+    (function(i) {
+      setTimeout(function() {
+        stageData[i] = numStore[i];
+        increaseCounter();
+      }, 800 * i);
+    })(i);
   }
 }
 
-function tileChgCall(numGen) {
-  if (numGen == 0) {
-    tile1Chg();
-    console.log("tile1 bordere change call triggered");
-  } else if (numGen == 1) {
-    tile2Chg();
-    console.log("tile1 bordere change call triggered");
-  } else if (numGen == 2) {
-    tile3Chg();
-    console.log("tile1 bordere change call triggered");
-  } else if (numGen == 3) {
-    tile4Chg();
-    console.log("tile1 bordere change call triggered");
+////// Guts
+
+function increaseCounter() {
+  //I think this is still processing all number as one event
+  let counter = 0;
+  increaseByOneSecond();
+
+  function increaseByOneSecond() {
+    setTimeout(function() {
+      counter++;
+      if (counter <= currentRnd) {
+        tileChgCall(stageData);
+      }
+    }, 1000);
+  }
+  console.log("increased counter on!");
+}
+
+//tile change
+function tileChgCall(stageData) {
+  for (let i = 0; i < currentRnd; i++) {
+    if (stageData[i] == 0) {
+      tile1Chg();
+      console.log("tile1 bordere change call triggered");
+    } else if (stageData[i] == 1) {
+      tile2Chg();
+      console.log("tile1 bordere change call triggered");
+    } else if (stageData[i] == 2) {
+      tile3Chg();
+      console.log("tile1 bordere change call triggered");
+    } else if (stageData[i] == 3) {
+      tile4Chg();
+      console.log("tile1 bordere change call triggered");
+    }
   }
 }
 
@@ -46,7 +86,7 @@ function tile1Chg() {
   setTimeout(function tileChg() {
     chg1Back();
     console.log("0 initial tile change");
-  }, 1000);
+  }, 500);
 }
 function chg1Back() {
   jerry.style.borderColor = "white";
@@ -58,7 +98,7 @@ function tile2Chg() {
   setTimeout(function tileChg() {
     chg2Back();
     console.log("1 initial tile change");
-  }, 1000);
+  }, 500);
 }
 function chg2Back() {
   elaine.style.borderColor = "white";
@@ -70,7 +110,7 @@ function tile3Chg() {
   setTimeout(function tileChg() {
     chg3Back();
     console.log("2 initial tile change");
-  }, 1000);
+  }, 500);
 }
 function chg3Back() {
   kramer.style.borderColor = "white";
@@ -82,7 +122,7 @@ function tile4Chg() {
   setTimeout(function tileChg() {
     chg4Back();
     console.log("3 initial tile change");
-  }, 1000);
+  }, 500);
 }
 function chg4Back() {
   george.style.borderColor = "white";
@@ -91,69 +131,54 @@ function chg4Back() {
 
 // Player clicks
 
-function winOrLose(playerArr, numStore) {
-  if (playerArr.length === numStore.length) {
+function winOrLose(playerArr, stageData) {
+  if (playerArr.length === stageData.length) {
     console.log("this is evaluating");
     for (var i = 0; i < playerArr.length; i++) {
-      for (var j = 0; j < numStore.length; j++) {
-        if (numStore[j] === playerArr[i]) {
-          winRndAlert();
-        } else {
-          alert("Yadda, Yadda... YOU LOSE");
+      for (var j = 0; j < stageData.length; j++) {
+        if (stageData[j] === playerArr[i]) {
+          setTimeout(function() {
+            winRndAlert();
+          }, 1500);
+        }
+        if (stageData[j] !== playerArr[i]) {
+          setTimeout(function() {
+            alert("NO SOUP FOR YOU!! -GAME OVER-");
+          }, 1500);
         }
       }
     }
   }
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
+  if (playerArr.length > stageData.length) {
+    alert("Yadda, Yadda... YOU LOSE");
   }
 }
-
-// let truFls = true;
-// function winOrLose() {
-//   if (playerArr.length > numStore.length) {
-//     alert("NO SOUP FOR YOU!");
-//   }
-
-//   for (let i = 0; i < numStore.length; i++) {
-//     console.log(playerArr[i], numStore[i]);
-//     if (playerArr[i] !== numStore[i]) {
-//       truFls = false;
-//       console.log("evaluates to false");
-//     }
-//   }
-//   if (truFls === true) {
-//     winRndAlert();
-//   } else {
-//
-//   }
-// }
 
 jerry.addEventListener("click", function() {
   playerArr.push(0);
   tile1Chg();
-  winOrLose(playerArr, numStore);
+  winOrLose(playerArr, stageData);
   console.log("jerry click funct calls");
 });
 
 elaine.addEventListener("click", function() {
   playerArr.push(1);
   tile2Chg();
-  winOrLose(playerArr, numStore);
+  winOrLose(playerArr, stageData);
   console.log("elaine click funct calls");
 });
 
 kramer.addEventListener("click", function() {
   playerArr.push(2);
   tile3Chg();
-  winOrLose(playerArr, numStore);
+  winOrLose(playerArr, stageData);
   console.log("kramer click funct calls");
 });
 
 george.addEventListener("click", function() {
   playerArr.push(3);
   tile4Chg();
-  winOrLose(playerArr, numStore);
+  winOrLose(playerArr, stageData);
   console.log("george click funct calls");
 });
 
@@ -166,15 +191,12 @@ function winRndAlert() {
 
 function advncNextRnd() {
   setTimeout(function() {
-    //currentRnd += 1;
-    numStore = [];
-    playerArr = [];
     startGame();
     console.log("pause between rounds");
-  }, 3000);
+  }, 2000);
 }
 
-///// Engine
+/////
 // function randomNumGen() {
 //   let numGen = Math.floor(Math.random() * 4);
 //   numStore.push(numGen);
@@ -189,19 +211,7 @@ function advncNextRnd() {
 //   }
 // }
 
-function startGame() {
-  for (let i = 0; i < currentRnd; i++) {
-    randomNumGen(); //seperate
-    console.log("1");
-  }
-  function randomNumGen() {
-    let numGen = Math.floor(Math.random() * 4);
-    numStore.push(numGen);
-    increaseCounter(numGen); //triggering exponentially per round
-    console.log("2");
-  }
-}
-
+//////////
 // function timeControl(numGen) {
 //   if (currentRnd == numStore.length) {
 //     increaseCounter(numGen);
@@ -221,6 +231,7 @@ function startGame() {
 //     console.log("1");
 //   }
 // }
+///////////
 
 // //player clicks this tile --> need to look at numGen array (check for )
 // //
@@ -325,4 +336,25 @@ function startGame() {
 // function cntAdvance() {
 //   console.log("here");
 //   randomNumGen();
+// }
+
+/////////
+// let truFls = true;
+// function winOrLose() {
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   }
+
+//   for (let i = 0; i < numStore.length; i++) {
+//     console.log(playerArr[i], numStore[i]);
+//     if (playerArr[i] !== numStore[i]) {
+//       truFls = false;
+//       console.log("evaluates to false");
+//     }
+//   }
+//   if (truFls === true) {
+//     winRndAlert();
+//   } else {
+//
+//   }
 // }
