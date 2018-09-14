@@ -6,7 +6,7 @@ Description:
 Seinfeld-Simon is a game for challenging your memeory and enjoy. This is the classic Simon game with a sitcom twist.
 
 Brief Example
-SCREEN SHOT LINK
+![alt text](https://github.com/wheresronald0/Seinfeld-Simon/blob/master/images/Screen%20Shot%202018-09-14%20at%2012.10.45%20PM.png?raw=true "Screenshot for Application")
 
 List of Features / User Stories:
 The game in made up of four picture tiles in which a user is required to select, miroring the picture tile, in order, that the computer highlights. There are instructions on the page so the user can educate themself on how to play the game. Once the user is familiar with the strategy and rules of the road, there is a start button to initiate the game
