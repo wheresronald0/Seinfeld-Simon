@@ -9,44 +9,31 @@ playButton.addEventListener("click", startGame);
 let numStore = [];
 let playerArr = [];
 let stageData = [];
-let currentRnd = 2;
+let currentRnd = 1;
 
 /// Engine
 
 function startGame() {
   for (let i = 0; i < currentRnd; i++) {
-    numStore = [];
-    playerArr = [];
-    stageData = [];
-    randomNumGen();
-    console.log("1");
-  }
-  function randomNumGen() {
-    let numGen = Math.floor(Math.random() * 4);
-    numStore.push(numGen);
-    console.log("2");
-  }
-  console.log("3");
-  stagingExtractor();
-  console.log("4");
-}
-
-function stagingExtractor() {
-  //source: https://borgs.cybrilla.com/tils/javascript-for-loop-with-delay-in-each-iteration-using-iife/
-  console.log("5");
-  for (let i = 0; i < currentRnd; i++) {
     (function(i) {
       setTimeout(function() {
-        stageData[i] = numStore[i];
-        increaseCounter();
-      }, 800 * i);
+        randomNumGen();
+      }, 1000 * i);
     })(i);
   }
+  console.log("1");
+}
+
+function randomNumGen() {
+  let numGen = Math.floor(Math.random() * 4);
+  numStore.push(numGen);
+  increaseCounter(numGen); // data is staging in array equal to numstore (checked!)
+  console.log("2");
 }
 
 ////// Guts
 
-function increaseCounter() {
+function increaseCounter(numGen) {
   //I think this is still processing all number as one event
   let counter = 0;
   increaseByOneSecond();
@@ -55,29 +42,27 @@ function increaseCounter() {
     setTimeout(function() {
       counter++;
       if (counter <= currentRnd) {
-        tileChgCall(stageData);
+        tileChgCall(numGen);
       }
-    }, 1000);
+    }, 100);
   }
   console.log("increased counter on!");
 }
 
 //tile change
-function tileChgCall(stageData) {
-  for (let i = 0; i < currentRnd; i++) {
-    if (stageData[i] == 0) {
-      tile1Chg();
-      console.log("tile1 bordere change call triggered");
-    } else if (stageData[i] == 1) {
-      tile2Chg();
-      console.log("tile1 bordere change call triggered");
-    } else if (stageData[i] == 2) {
-      tile3Chg();
-      console.log("tile1 bordere change call triggered");
-    } else if (stageData[i] == 3) {
-      tile4Chg();
-      console.log("tile1 bordere change call triggered");
-    }
+function tileChgCall(numGen) {
+  if (numGen == 0) {
+    tile1Chg();
+    console.log("tile1 bordere change call triggered");
+  } else if (numGen == 1) {
+    tile2Chg();
+    console.log("tile1 bordere change call triggered");
+  } else if (numGen == 2) {
+    tile3Chg();
+    console.log("tile1 bordere change call triggered");
+  } else if (numGen == 3) {
+    tile4Chg();
+    console.log("tile1 bordere change call triggered");
   }
 }
 
@@ -131,17 +116,18 @@ function chg4Back() {
 
 // Player clicks
 
-function winOrLose(playerArr, stageData) {
-  if (playerArr.length === stageData.length) {
-    console.log("this is evaluating");
+function winOrLose() {
+  if (playerArr.length === numStore.length) {
+    console.log("both arrays same length, is evaluating");
     for (var i = 0; i < playerArr.length; i++) {
-      for (var j = 0; j < stageData.length; j++) {
-        if (stageData[j] === playerArr[i]) {
+      for (var j = 0; j < numStore.length; j++) {
+        if (numStore[j] === playerArr[i]) {
+          console.log("play won!");
           setTimeout(function() {
             winRndAlert();
           }, 1500);
         }
-        if (stageData[j] !== playerArr[i]) {
+        if (numStore[j] !== playerArr[i]) {
           setTimeout(function() {
             alert("NO SOUP FOR YOU!! -GAME OVER-");
           }, 1500);
@@ -149,7 +135,7 @@ function winOrLose(playerArr, stageData) {
       }
     }
   }
-  if (playerArr.length > stageData.length) {
+  if (playerArr.length > numStore.length) {
     alert("Yadda, Yadda... YOU LOSE");
   }
 }
@@ -157,28 +143,28 @@ function winOrLose(playerArr, stageData) {
 jerry.addEventListener("click", function() {
   playerArr.push(0);
   tile1Chg();
-  winOrLose(playerArr, stageData);
+  winOrLose();
   console.log("jerry click funct calls");
 });
 
 elaine.addEventListener("click", function() {
   playerArr.push(1);
   tile2Chg();
-  winOrLose(playerArr, stageData);
+  winOrLose();
   console.log("elaine click funct calls");
 });
 
 kramer.addEventListener("click", function() {
   playerArr.push(2);
   tile3Chg();
-  winOrLose(playerArr, stageData);
+  winOrLose();
   console.log("kramer click funct calls");
 });
 
 george.addEventListener("click", function() {
   playerArr.push(3);
   tile4Chg();
-  winOrLose(playerArr, stageData);
+  winOrLose();
   console.log("george click funct calls");
 });
 
@@ -190,6 +176,9 @@ function winRndAlert() {
 }
 
 function advncNextRnd() {
+  numStore = [];
+  playerArr = [];
+  stageData = [];
   setTimeout(function() {
     startGame();
     console.log("pause between rounds");
