@@ -11,10 +11,11 @@ let playerArr = [];
 let currentRnd = 1;
 
 // Guts
+
 function increaseCounter(numGen) {
   let counter = 0;
-  increase();
-  function increase() {
+  increaseByOneSecond();
+  function increaseByOneSecond() {
     setTimeout(function() {
       counter++;
       if (counter <= numStore.length) {
@@ -89,67 +90,70 @@ function chg4Back() {
 }
 
 // Player clicks
-let truFls = true;
-function winOrLose() {
+
+function winOrLose(playerArr, numStore) {
+  if (playerArr.length === numStore.length) {
+    for (var i = 0; i < playerArr.length; i++) {
+      for (var j = 0; j < numStore.length; j++) {
+        if (numStore[j] === playerArr[i]) {
+          console.log("this is evaluating");
+          winRndAlert();
+        } else {
+          alert("Yadda, Yadda... YOU LOSE");
+        }
+      }
+    }
+  }
   if (playerArr.length > numStore.length) {
     alert("NO SOUP FOR YOU!");
   }
-
-  for (let i = 0; i < numStore.length; i++) {
-    console.log(playerArr[i], numStore[i]);
-    if (playerArr[i] !== numStore[i]) {
-      truFls = false;
-      console.log("evaluates to false");
-    }
-  }
-  if (truFls === true) {
-    winRndAlert();
-  } else {
-    alert("Yadda, Yadda... YOU LOSE");
-  }
 }
 
+// let truFls = true;
+// function winOrLose() {
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   }
+
 //   for (let i = 0; i < numStore.length; i++) {
-//     if (playerArr[i] === numStore[i]) {
-//       truFls = "true";
-//       console.log("true");
-//     } else {
-//       truFls = "false";
-//       console.log("false");
+//     console.log(playerArr[i], numStore[i]);
+//     if (playerArr[i] !== numStore[i]) {
+//       truFls = false;
+//       console.log("evaluates to false");
 //     }
 //   }
-//   if (truFls === "true") {
+//   if (truFls === true) {
 //     winRndAlert();
 //   } else {
-//     alert("Yadda, Yadda... YOU LOSE");
+//
 //   }
 // }
 
 jerry.addEventListener("click", function() {
   playerArr.push(0);
   tile2Chg();
-  winOrLose();
+  winOrLose(playerArr, numStore);
   console.log("jerry click funct calls");
 });
 
 elaine.addEventListener("click", function() {
   playerArr.push(1);
   tile2Chg();
-  winOrLose();
+  winOrLose(playerArr, numStore);
   console.log("elaine click funct calls");
 });
 
 kramer.addEventListener("click", function() {
   playerArr.push(2);
   tile3Chg();
-  winOrLose();
+  winOrLose(playerArr, numStore);
   console.log("kramer click funct calls");
 });
 
 george.addEventListener("click", function() {
   playerArr.push(3);
   tile4Chg();
-  winOrLose();
+  winOrLose(playerArr, numStore);
   console.log("george click funct calls");
 });
 
@@ -162,19 +166,19 @@ function winRndAlert() {
 
 function advncNextRnd() {
   setTimeout(function() {
+    currentRnd += 1;
+    numStore = [];
+    playerArr = [];
     startGame();
     console.log("pause between rounds");
   }, 3000);
-  currentRnd += 1;
-  numStore = [];
-  playerArr = [];
 }
 
 ///// Engine
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
-  increaseCounter(numGen); //seperate
+  increaseCounter(numGen);
   console.log("2");
 }
 
@@ -184,6 +188,26 @@ function startGame() {
     console.log("1");
   }
 }
+
+// function timeControl(numGen) {
+//   if (currentRnd == numStore.length) {
+//     increaseCounter(numGen);
+//   }
+// }
+
+// function randomNumGen() {
+//   let numGen = Math.floor(Math.random() * 4);
+//   numStore.push(numGen);
+//   increaseCounter(numGen); //seperate
+//   console.log("2");
+// }
+
+// function startGame() {
+//   for (let i = 0; i < currentRnd; i++) {
+//     randomNumGen(); //seperate
+//     console.log("1");
+//   }
+// }
 
 // //player clicks this tile --> need to look at numGen array (check for )
 // //

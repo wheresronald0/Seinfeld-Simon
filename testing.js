@@ -39,57 +39,32 @@
 //   }, 1000);
 // }
 
-function stager() {
-  if (numStore[0]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 1000);
-  }
-  else if (numStore[1]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 1000);
-  }
-  else if (numStore[2]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 1000);
-  }
-  else if (numStore[3]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 1500);
-  }
-  else if (numStore[4]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 2000);
-  }
-  else if (numStore[5]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 2500);
-  }
-  else if (numStore[6]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 3000);
-  }
-  else if (numStore[7]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 3500);
-  }
-  else if (numStore[8]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 4000);
-  }
-  else if (numStore[9]) {
-    setTimeout(function() {
-      tileChgCall(0);
-    }, 4500);
-};
+// function increaseCounter(numGen) {
+//   if (numStore[0]) {
+//     setTimeout(function() {
+//       tileChgCall();
+//     }, 1000);
+//   }
+//   else if (numStore[1]) {
+//     setTimeout(function() {
+//       tileChgCall(numGen);
+//     }, 2000);
+//   }
+//   else if (numStore[2]) {
+//     setTimeout(function() {
+//       tileChgCall(numGen);
+//     }, 3000);
+//   }
+//   else if (numStore[3]) {
+//     setTimeout(function() {
+//       tileChgCall(numGen);
+//     }, 4000);
+//   }
+//   else if (numStore[4]) {
+//     setTimeout(function() {
+//       tileChgCall(numGen);
+//     }, 5000);
+//   }
 
 // let counter = 0;
 
@@ -126,23 +101,34 @@ function stager() {
 //     alert("Yadda, Yadda... YOU LOSE");
 //   }
 
-let truFls;
-function winOrLose() {
-  if (playerArr.length > numStore.length) {
-    alert("NO SOUP FOR YOU!");
-  }
-  for (let i = 0; i < numStore.length; i++) {
-    if (playerArr[i] === numStore[i]) {
-      truFls = true;
-      console.log("true");
-    } else {
-      truFls = false;
-      console.log("false");
+// let truFls;
+// function winOrLose() {
+//   if (playerArr.length > numStore.length) {
+//     alert("NO SOUP FOR YOU!");
+//   }
+//   for (let i = 0; i < numStore.length; i++) {
+//     if (playerArr[i] === numStore[i]) {
+//       truFls = true;
+//       console.log("true");
+//     } else {
+//       truFls = false;
+//       console.log("false");
+//     }
+//   }
+//   if (truFls === true) {
+//     winRndAlert();
+//   } else {
+//     alert("Yadda, Yadda... YOU LOSE");
+//   }
+// }
+
+function winOrLose(playerArr, numStore) {
+  for (var i = 0; i < playerArr.length; i++) {
+    for (var j = 0; j < numStore.length; j++) {
+      if (numStore[j] === playerArr[i]) {
+        winRndAlert();
+      }
     }
   }
-  if (truFls === true) {
-    winRndAlert();
-  } else {
-    alert("Yadda, Yadda... YOU LOSE");
-  }
+  alert("Yadda, Yadda... YOU LOSE");
 }
