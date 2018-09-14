@@ -122,13 +122,73 @@
 //   }
 // }
 
-function winOrLose(playerArr, numStore) {
-  for (var i = 0; i < playerArr.length; i++) {
-    for (var j = 0; j < numStore.length; j++) {
-      if (numStore[j] === playerArr[i]) {
-        winRndAlert();
-      }
-    }
-  }
-  alert("Yadda, Yadda... YOU LOSE");
-}
+// function winOrLose(playerArr, numStore) {
+//   for (var i = 0; i < playerArr.length; i++) {
+//     for (var j = 0; j < numStore.length; j++) {
+//       if (numStore[j] === playerArr[i]) {
+//         winRndAlert();
+//       }
+//     }
+//   }
+//   alert("Yadda, Yadda... YOU LOSE");
+// }
+
+// function randomNumGen() {
+//   let numGen = Math.floor(Math.random() * 4);
+//   numStore.push(numGen);
+//   increaseCounter(numGen);
+//   console.log("2");
+// }
+
+// function startGame() {
+//   for (let i = 0; i < currentRnd; i++) {
+//     randomNumGen(); //seperate
+//     console.log("1");
+//   }
+// }
+
+// Player clicks
+// function winOrLose() {
+//   if (playerArr.length === numStore.length) {
+//     console.log("both arrays same length, is evaluating");
+//     for (var i = 0; i < playerArr.length; i++) {
+//       for (var j = 0; j < numStore.length; j++) {
+//         if (numStore[j] === playerArr[i]) {
+//           numStore = [];
+//           playerArr = [];
+//           stageData = [];
+//           console.log("play won!");
+//           setTimeout(function() {
+//             winRndAlert();
+//           }, 1500);
+//         }
+//         if (numStore[j] !== playerArr[i]) {
+//           setTimeout(function() {
+//             alert("NO SOUP FOR YOU!! -GAME OVER-");
+//           }, 1500);
+//         }
+//       }
+//     }
+//   }
+//   if (playerArr.length > numStore.length) {
+//     alert("Yadda, Yadda... YOU LOSE");
+//   }
+// }
+
+////// Guts
+
+// function increaseCounter(numGen) {
+//   //I think this is still processing all number as one event
+//   let counter = 0;
+//   increaseByOneSecond();
+
+//   function increaseByOneSecond() {
+//     setTimeout(function() {
+//       counter++;
+//       if (counter <= currentRnd) {
+//         tileChgCall(numGen);
+//       }
+//     }, 1500);
+//   }
+//   console.log("increased counter on!");
+// }
