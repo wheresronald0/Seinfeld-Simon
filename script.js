@@ -9,7 +9,7 @@ playButton.addEventListener("click", startGame);
 let numStore = [];
 let playerArr = [];
 let stageData = [];
-let currentRnd = 1;
+let currentRnd = 2;
 
 /// Engine
 
@@ -18,7 +18,7 @@ function startGame() {
     (function(i) {
       setTimeout(function() {
         randomNumGen();
-      }, 1000 * i);
+      }, 2000 * i);
     })(i);
   }
   console.log("1");
@@ -27,27 +27,27 @@ function startGame() {
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
   numStore.push(numGen);
-  increaseCounter(numGen); // data is staging in array equal to numstore (checked!)
+  tileChgCall(numGen); // data is staging in array equal to numstore (checked!)
   console.log("2");
 }
 
 ////// Guts
 
-function increaseCounter(numGen) {
-  //I think this is still processing all number as one event
-  let counter = 0;
-  increaseByOneSecond();
+// function increaseCounter(numGen) {
+//   //I think this is still processing all number as one event
+//   let counter = 0;
+//   increaseByOneSecond();
 
-  function increaseByOneSecond() {
-    setTimeout(function() {
-      counter++;
-      if (counter <= currentRnd) {
-        tileChgCall(numGen);
-      }
-    }, 100);
-  }
-  console.log("increased counter on!");
-}
+//   function increaseByOneSecond() {
+//     setTimeout(function() {
+//       counter++;
+//       if (counter <= currentRnd) {
+//         tileChgCall(numGen);
+//       }
+//     }, 1500);
+//   }
+//   console.log("increased counter on!");
+// }
 
 //tile change
 function tileChgCall(numGen) {
@@ -122,6 +122,9 @@ function winOrLose() {
     for (var i = 0; i < playerArr.length; i++) {
       for (var j = 0; j < numStore.length; j++) {
         if (numStore[j] === playerArr[i]) {
+          numStore = [];
+          playerArr = [];
+          stageData = [];
           console.log("play won!");
           setTimeout(function() {
             winRndAlert();
@@ -176,9 +179,6 @@ function winRndAlert() {
 }
 
 function advncNextRnd() {
-  numStore = [];
-  playerArr = [];
-  stageData = [];
   setTimeout(function() {
     startGame();
     console.log("pause between rounds");
