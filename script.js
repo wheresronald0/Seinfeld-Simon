@@ -9,7 +9,7 @@ playButton.addEventListener("click", startGame);
 let numStore = [];
 let playerArr = [];
 let stageData = [];
-let currentRnd = 2;
+let currentRnd = 3;
 
 /// Engine
 
@@ -116,30 +116,56 @@ function chg4Back() {
 
 // Player clicks
 
+// function winOrLose() {
+//   if (playerArr.length === numStore.length) {
+//     console.log("both arrays same length, is evaluating");
+//     for (var i = 0; i < playerArr.length; i++) {
+//       for (var j = 0; j < numStore.length; j++) {
+//         if (numStore[j] === playerArr[i]) {
+//           numStore = [];
+//           playerArr = [];
+//           stageData = [];
+//           console.log("play won!");
+//           setTimeout(function() {
+//             winRndAlert();
+//           }, 1500);
+//         }
+//         if (numStore[j] !== playerArr[i]) {
+//           setTimeout(function() {
+//             alert("NO SOUP FOR YOU!! -GAME OVER-");
+//           }, 1500);
+//         }
+//       }
+//     }
+//   }
+//   if (playerArr.length > numStore.length) {
+//     alert("Yadda, Yadda... YOU LOSE");
+//   }
+// }
+
+let truFls = true;
 function winOrLose() {
+  if (playerArr.length > numStore.length) {
+    alert("Game Over");
+  }
+
   if (playerArr.length === numStore.length) {
-    console.log("both arrays same length, is evaluating");
-    for (var i = 0; i < playerArr.length; i++) {
-      for (var j = 0; j < numStore.length; j++) {
-        if (numStore[j] === playerArr[i]) {
-          numStore = [];
-          playerArr = [];
-          stageData = [];
-          console.log("play won!");
-          setTimeout(function() {
-            winRndAlert();
-          }, 1500);
-        }
-        if (numStore[j] !== playerArr[i]) {
-          setTimeout(function() {
-            alert("NO SOUP FOR YOU!! -GAME OVER-");
-          }, 1500);
-        }
+    for (let i = 0; i < numStore.length; i++) {
+      console.log(playerArr[i], numStore[i]);
+      if (playerArr[i] !== numStore[i]) {
+        truFls = false;
+        console.log("evaluates to false");
       }
     }
-  }
-  if (playerArr.length > numStore.length) {
-    alert("Yadda, Yadda... YOU LOSE");
+    if (truFls === true) {
+      setTimeout(function() {
+        winRndAlert();
+      }, 1500);
+    } else {
+      setTimeout(function() {
+        alert("NO SOUP FOR YOU!! -GAME OVER-");
+      }, 1500);
+    }
   }
 }
 
