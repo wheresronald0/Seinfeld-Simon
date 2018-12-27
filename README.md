@@ -1,27 +1,40 @@
 # Seinfeld-Simon
 
-READ ME
+## Description
 
-Description:
-Seinfeld-Simon is a game for challenging your memeory and enjoy. This is the classic Simon game with a sitcom twist.
+Seinfeld-Simon is a game for challenging your memory and enjoy. This is the classic Simon game with a sitcom twist
 
-Brief Example
+## Brief Example
+
 ![alt text](https://github.com/wheresronald0/Seinfeld-Simon/blob/master/images/Screen%20Shot%202018-09-14%20at%2012.10.45%20PM.png?raw=true "Screenshot for Application")
 
-List of Features / User Stories:
-The game in made up of four picture tiles in which a user is required to select, miroring the picture tile, in order, that the computer highlights. There are instructions on the page so the user can educate themself on how to play the game. Once the user is familiar with the strategy and rules of the road, there is a start button to initiate the game
+## List of Features / User Stories (MVP/ Bronze)
 
-All features included are necessity for game play. Please check back for enhanced functionality to included: round tracking, and multi-player.
+- The game in made up of four picture tiles in which a user is required to select, mirroring the order that the computer highlights
+- The initial round starts with one tile being highlighted, and increases by one tile each subsquent round
+- At the end of each round the user will be notified if they've passed of failed the round. If the result is failed, the game ends
+- There are instructions on the page so the user can educate themselves on how to play the game
+- Once the user is familiar with the strategy and rules, there is a start button to initiate the game, and a reset button to start over
 
-Technologies Used:
-This game was created using HTML5, CSS, and JavaScript
+## Advanced Features (Silver/Gold)
 
-Installation Instructions / Getting Started:
-Get ready to watch, remember, repeat! The Seinfeld-Simon game is the exciting computer game of lights and pictures of you favorite cast of charecters from the hit sitcom, Seinfeld. Players must repeat random sequences of lights by pressing the highlighted pictures in the correct order, to move to the next round.
+- Round tracking to indicate the round
+- High score
+- multi-player competition
+- Sound indication when a tile highlights or is pushed
 
-Contribution Guidelines:
-I encourage feedback and issue reporting. Please reach out directly to me via eamil so I can address any questions or concerns at, Ron Mason - wheresronald0@gmail.com
+## Technologies Used
 
-Good links to include are:
-Main GitHub repository: https://github.com/wheresronald0/Seinfeld-Simon
-Issue tracker https://github.com/wheresronald0/Seinfeld-Simon/issues
+This game was created using JavaScript, HTML, and CSS
+
+## Contribution Guidelines
+
+if you'd like to contribute to this project, please checkout a branch
+
+## Project's main repository
+
+(https://github.com/wheresronald0/Seinfeld-Simon)
+
+## Project's issue tracker
+
+(https://github.com/wheresronald0/Seinfeld-Simon/issues)
