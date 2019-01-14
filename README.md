@@ -8,6 +8,10 @@ Seinfeld-Simon is a game for challenging your memory and enjoy. This is the clas
 
 ![alt text](https://github.com/wheresronald0/Seinfeld-Simon/blob/master/images/Screen%20Shot%202018-09-14%20at%2012.10.45%20PM.png?raw=true "Screenshot for Application")
 
+## This project is / should be used for
+
+This project was my first JavaScript project ever at General Assembly's Web Development Immersive course. Although the code is extremely WET, I've chosen not to refactor to preserve the benchmark.
+
 ## List of Features / User Stories (MVP/ Bronze)
 
 - The game in made up of four picture tiles in which a user is required to select, mirroring the order that the computer highlights

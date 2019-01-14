@@ -27,7 +27,7 @@ function startGame() {
       }, 1600 * i);
     })(i);
   }
-}
+} //controling the timing from this function
 
 function randomNumGen() {
   let numGen = Math.floor(Math.random() * 4);
@@ -47,15 +47,36 @@ function tileChgCall(numGen) {
   }
 }
 
+for (var i = 0; i < attributes.length; i++) {
+  input.setAttribute(attributes[i], values[i]);
+}
+
 function tile1Chg() {
-  jerry.style.borderColor = "red";
+  //jerry.style.borderColor = "red";
+  jerry.setAttribute("src", "images/jerry2.jpg");
+  var attributes = ["border-radius", "border-color"];
+  var values = ["50%", "red"];
+  for (var i = 0; i < attributes.length; i++) {
+    jerry.style(attributes[i], values[i]);
+  }
   setTimeout(function tileChg() {
     chg1Back();
   }, 500);
 }
 function chg1Back() {
   jerry.style.borderColor = "white";
+  //jerry.setAttribute("src", "images/jerry.PNG");
 }
+
+// function tile1Chg() {
+//   jerry.style.borderColor = "red";
+//   setTimeout(function tileChg() {
+//     chg1Back();
+//   }, 500);
+// }
+// function chg1Back() {
+//   jerry.style.borderColor = "white";
+// }
 
 function tile2Chg() {
   elaine.style.borderColor = "yellow";
