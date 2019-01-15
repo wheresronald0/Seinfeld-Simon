@@ -3,10 +3,10 @@ const elaine = document.getElementById("two");
 const kramer = document.getElementById("three");
 const george = document.getElementById("four");
 
-const playButton = document.querySelector("#play");
+const playButton = document.getElementById("play");
 playButton.addEventListener("click", startGame);
 
-const resetButton = document.querySelector("#reset");
+const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", resetGame);
 
 let numStore = [];
@@ -22,17 +22,14 @@ function resetGame() {
 }
 
 function startGame() {
-  numStore = [];
-  playerArr = [];
-  stageData = [];
-  currentRnd = 1;
-  for (let i = 0; i < currentRnd; i++) {
-    (function(i) {
-      setTimeout(function() {
-        randomNumGen();
-      }, 800 * i);
-    })(i);
-  }
+  if (currentRnd => 1)
+    for (let i = 0; i < currentRnd; i++) {
+      (function(i) {
+        setTimeout(function() {
+          randomNumGen();
+        }, 800 * i);
+      })(i);
+    }
 } //controling the timing from this function
 
 function randomNumGen() {
