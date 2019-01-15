@@ -1,7 +1,7 @@
-const jerry = document.querySelector("#one");
-const elaine = document.querySelector("#two");
-const kramer = document.querySelector("#three");
-const george = document.querySelector("#four");
+const jerry = document.getElementById("one");
+const elaine = document.getElementById("two");
+const kramer = document.getElementById("three");
+const george = document.getElementById("four");
 
 const playButton = document.querySelector("#play");
 playButton.addEventListener("click", startGame);
@@ -15,16 +15,22 @@ let stageData = [];
 let currentRnd = 1;
 
 function resetGame() {
+  numStore = [];
+  playerArr = [];
+  stageData = [];
   currentRnd = 1;
-  startGame();
 }
 
 function startGame() {
+  numStore = [];
+  playerArr = [];
+  stageData = [];
+  currentRnd = 1;
   for (let i = 0; i < currentRnd; i++) {
     (function(i) {
       setTimeout(function() {
         randomNumGen();
-      }, 1600 * i);
+      }, 800 * i);
     })(i);
   }
 } //controling the timing from this function
@@ -47,36 +53,15 @@ function tileChgCall(numGen) {
   }
 }
 
-for (var i = 0; i < attributes.length; i++) {
-  input.setAttribute(attributes[i], values[i]);
-}
-
 function tile1Chg() {
-  //jerry.style.borderColor = "red";
-  jerry.setAttribute("src", "images/jerry2.jpg");
-  var attributes = ["border-radius", "border-color"];
-  var values = ["50%", "red"];
-  for (var i = 0; i < attributes.length; i++) {
-    jerry.style(attributes[i], values[i]);
-  }
+  jerry.style.borderColor = "red";
   setTimeout(function tileChg() {
     chg1Back();
   }, 500);
 }
 function chg1Back() {
   jerry.style.borderColor = "white";
-  //jerry.setAttribute("src", "images/jerry.PNG");
 }
-
-// function tile1Chg() {
-//   jerry.style.borderColor = "red";
-//   setTimeout(function tileChg() {
-//     chg1Back();
-//   }, 500);
-// }
-// function chg1Back() {
-//   jerry.style.borderColor = "white";
-// }
 
 function tile2Chg() {
   elaine.style.borderColor = "yellow";
